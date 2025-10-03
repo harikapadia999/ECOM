@@ -27,7 +27,7 @@ app.get("/test", (req: Request, res: Response) => {
     return res.status(401).json({ message: "You are not logged in!" });
   }
   console.log(auth);
-  res.json({ message: "Product service authenticated" });
+  res.json({ message: "Product service is authenticated" });
 });
 app.listen(8000, () => {
   console.log("Product service is running on port 8000");
