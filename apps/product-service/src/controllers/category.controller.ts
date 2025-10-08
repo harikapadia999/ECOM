@@ -1,4 +1,4 @@
-import { Category } from "./../../../packages/product-db/generated/prisma/index.d";
+import { Category } from "../../../../packages/product-db/generated/prisma";
 import { Prisma, prisma } from "@repo/product-db";
 import { Request, Response } from "express";
 

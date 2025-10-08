@@ -1,9 +1,9 @@
 import express, { json, NextFunction, Request, Response } from "express";
 import cors from "cors";
 import { clerkMiddleware, getAuth } from "@clerk/express";
-import { shouldBeUser } from "../middleware/authMiddleware.js";
-import productRouter from "../routes/product.route.js";
-import categoryRouter from "../routes/category.route.js";
+import { shouldBeUser } from "./middleware/authMiddleware.js";
+import productRouter from "./routes/product.route.js";
+import categoryRouter from "./routes/category.route.js";
 
 const app = express();
 app.use(express.json());
