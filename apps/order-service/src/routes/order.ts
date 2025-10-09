@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { shouldBeUser } from "../middleware/authMiddleware";
+import { shouldBeAdmin, shouldBeUser } from "../middleware/authMiddleware";
 import { Order } from "@repo/order-db";
 
 export const orderRoute = async (fastify: FastifyInstance) => {
@@ -11,8 +11,12 @@ export const orderRoute = async (fastify: FastifyInstance) => {
       return reply.send(orders);
     }
   );
-  fastify.get("/orders", async (request, reply) => {
-    const orders = await Order.find();
-    return reply.send(orders);
-  });
+  fastify.get(
+    "/orders",
+    { preHandler: shouldBeAdmin },
+    async (request, reply) => {
+      const orders = await Order.find();
+      return reply.send(orders);
+    }
+  );
 };
